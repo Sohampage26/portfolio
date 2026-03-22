@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills — Soham Page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 60px; }
+    .skill-item { background: var(--card); border: 1px solid var(--border); border-radius: 13px; padding: 18px 20px; transition: border-color .2s, background .2s; }
+    .skill-item:hover { border-color: var(--border2); background: var(--card2); }
+    .skill-top { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 12px; }
+    .skill-name { font-weight: 600; }
+    .skill-pct { color: var(--accent); font-weight: 700; font-family: 'Cabinet Grotesk', sans-serif; }
+    .skill-track { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .skill-fill { height: 100%; border-radius: 3px; width: 0; transition: width 1.3s cubic-bezier(.4,0,.2,1); }
+
+    .stack-section { margin-bottom: 60px; }
+    .stack-group { margin-bottom: 28px; }
+    .stack-group-label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+    .stack-pills { display: flex; flex-wrap: wrap; gap: 9px; }
+    .stack-pill {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: 30px;
+      background: var(--card); border: 1px solid var(--border);
+      font-size: 13px; font-weight: 500;
+      transition: border-color .2s, transform .18s, background .2s;
+      cursor: default;
+    }
+    .stack-pill:hover { border-color: var(--accent); transform: translateY(-2px); background: var(--card2); }
+    .pdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; }
+    .lang-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 30px 24px; text-align: center; transition: transform .25s, border-color .25s, background .25s; position: relative; overflow: hidden; }
+    .lang-card::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity .3s; background: radial-gradient(circle at 50% 0%, rgba(123,110,246,.07), transparent 70%); }
+    .lang-card:hover { transform: translateY(-5px); border-color: var(--border2); background: var(--card2); }
+    .lang-card:hover::before { opacity: 1; }
+    .lang-card.jp { border-color: rgba(255,94,138,.25); }
+    .lang-card.jp:hover { border-color: var(--accent2); }
+    .lang-flag {
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+      font-size: 44px; display: flex; justify-content: center;
+      margin-bottom: 14px; line-height: 1; min-height: 44px; align-items: center;
+    }
+    .lang-name { font-family: 'Cabinet Grotesk', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 4px; letter-spacing: -.3px; }
+    .lang-sub { font-size: 12.5px; color: var(--muted); margin-bottom: 14px; font-weight: 500; }
+    .lbadge { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 20px; font-weight: 600; margin-bottom: 16px; }
+    .lb-native { background: rgba(56,232,192,.1); color: var(--accent3); border: 1px solid rgba(56,232,192,.22); }
+    .lb-fluent { background: rgba(123,110,246,.1); color: var(--a-light); border: 1px solid rgba(123,110,246,.22); }
+    .lb-n5 { background: rgba(255,94,138,.1); color: var(--accent2); border: 1px solid rgba(255,94,138,.25); }
+    .ldots { display: flex; justify-content: center; gap: 6px; }
+    .ldot { width: 9px; height: 9px; border-radius: 50%; background: var(--border); }
+    .ldot.on { background: var(--accent); }
+    .ldot.on-pink { background: var(--accent2); }
+    .jp-note { margin-top: 14px; font-size: 11.5px; color: var(--muted); line-height: 1.5; background: rgba(255,94,138,.05); border-radius: 9px; padding: 9px 12px; border: 1px solid rgba(255,94,138,.12); }
+
+    @media (max-width: 640px) { .skills-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="grid-lines"></div><canvas id="bg-canvas"></canvas>
+  <div id="cursor"></div><div id="cursor-ring"></div>
+  <nav id="main-nav">
+  <a class="nav-logo" href="index.html">SP.</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html" class="active">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()"></button>
+  </div>
+</nav>
+
+  <div class="page-wrap">
+    <div class="sec-tag">Technical arsenal</div>
+    <div class="sec-title">Skills</div>
+
+    <div class="skills-grid reveal">
+      <div class="skill-item"><div class="skill-top"><span class="skill-name">Python</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill" style="background:var(--accent)" data-w="88"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span class="skill-name">Java</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" style="background:var(--accent2)" data-w="85"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span class="skill-name">Flutter / Dart</span><span class="skill-pct">82%</span></div><div class="skill-track"><div class="skill-fill" style="background:var(--accent3)" data-w="82"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span class="skill-name">SQL / Firebase</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill" style="background:var(--accent)" data-w="88"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span class="skill-name">Machine Learning (NLP, CNN)</span><span class="skill-pct">82%</span></div><div class="skill-track"><div class="skill-fill" style="background:var(--accent2)" data-w="82"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span class="skill-name">GCP / AWS</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" style="background:var(--accent3)" data-w="80"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span class="skill-name">Kubernetes / DevOps</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" style="background:var(--accent)" data-w="75"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span class="skill-name">OpenCV / Computer Vision</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-fill" style="background:var(--accent2)" data-w="78"></div></div></div>
+    </div>
+
+    <div class="stack-section reveal">
+      <div class="sec-tag">Tools & technologies</div>
+      <div class="sec-title" style="margin-bottom:28px">Tech Stack</div>
+
+      <div class="stack-group">
+        <div class="stack-group-label">Languages</div>
+        <div class="stack-pills">
+          <div class="stack-pill"><div class="pdot" style="background:#f7c948"></div>Python</div>
+          <div class="stack-pill"><div class="pdot" style="background:#e76f51"></div>Java</div>
+          <div class="stack-pill"><div class="pdot" style="background:#54c5f8"></div>Dart</div>
+          <div class="stack-pill"><div class="pdot" style="background:#00b4d8"></div>C / C++</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Mobile & Frontend</div>
+        <div class="stack-pills">
+          <div class="stack-pill"><div class="pdot" style="background:#54c5f8"></div>Flutter</div>
+          <div class="stack-pill"><div class="pdot" style="background:#f06292"></div>HTML / CSS / JS</div>
+          <div class="stack-pill"><div class="pdot" style="background:#3ddc84"></div>Android</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Cloud & DevOps</div>
+        <div class="stack-pills">
+          <div class="stack-pill"><div class="pdot" style="background:#4285f4"></div>Google Cloud Platform</div>
+          <div class="stack-pill"><div class="pdot" style="background:#ff9900"></div>AWS</div>
+          <div class="stack-pill"><div class="pdot" style="background:#326ce5"></div>Kubernetes</div>
+          <div class="stack-pill"><div class="pdot" style="background:#e05d44"></div>Jenkins</div>
+          <div class="stack-pill"><div class="pdot" style="background:#f46800"></div>Prometheus</div>
+          <div class="stack-pill"><div class="pdot" style="background:#f05a28"></div>Grafana</div>
+          <div class="stack-pill"><div class="pdot" style="background:#4c9be8"></div>SonarQube</div>
+          <div class="stack-pill"><div class="pdot" style="background:#0f1689"></div>Helm</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Data & ML</div>
+        <div class="stack-pills">
+          <div class="stack-pill"><div class="pdot" style="background:#ff6f00"></div>TensorFlow / Keras</div>
+          <div class="stack-pill"><div class="pdot" style="background:#f7c948"></div>Pandas / NumPy</div>
+          <div class="stack-pill"><div class="pdot" style="background:#77b0d4"></div>OpenCV</div>
+          <div class="stack-pill"><div class="pdot" style="background:#a29bfe"></div>NLP / CNN</div>
+          <div class="stack-pill"><div class="pdot" style="background:#e9c46a"></div>Tableau</div>
+          <div class="stack-pill"><div class="pdot" style="background:#f4a261"></div>Power BI</div>
+          <div class="stack-pill"><div class="pdot" style="background:#5c7cfa"></div>Streamlit</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Databases</div>
+        <div class="stack-pills">
+          <div class="stack-pill"><div class="pdot" style="background:#4db33d"></div>MySQL / SQL</div>
+          <div class="stack-pill"><div class="pdot" style="background:#ff6b35"></div>Firebase Realtime DB</div>
+          <div class="stack-pill"><div class="pdot" style="background:#ff9900"></div>Cloud Firestore</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-tag">Communication</div>
+    <div class="sec-title">Languages</div>
+    <div class="lang-grid stagger-grid">
+      <div class="lang-card">
+        <span class="lang-flag"><img src="https://flagcdn.com/w80/in.png" alt="Marathi" style="width:52px;height:auto;border-radius:4px"></span>
+        <div class="lang-name">Marathi</div><div class="lang-sub">Native language</div>
+        <span class="lbadge lb-native">Native</span>
+        <div class="ldots"><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div></div>
+      </div>
+      <div class="lang-card">
+        <span class="lang-flag"><img src="https://flagcdn.com/w80/in.png" alt="Hindi" style="width:52px;height:auto;border-radius:4px"></span>
+        <div class="lang-name">Hindi</div><div class="lang-sub">Fluent</div>
+        <span class="lbadge lb-native">Native</span>
+        <div class="ldots"><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div></div>
+      </div>
+      <div class="lang-card">
+        <span class="lang-flag"><img src="https://flagcdn.com/w80/gb.png" alt="English" style="width:52px;height:auto;border-radius:4px"></span>
+        <div class="lang-name">English</div><div class="lang-sub">Professional</div>
+        <span class="lbadge lb-fluent">Fluent</span>
+        <div class="ldots"><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div><div class="ldot on"></div></div>
+      </div>
+      <div class="lang-card jp">
+        <span class="lang-flag"><img src="https://flagcdn.com/w80/jp.png" alt="Japanese" style="width:52px;height:auto;border-radius:4px"></span>
+        <div class="lang-name">Japanese</div><div class="lang-sub">JLPT N4 Certified</div>
+        <span class="lbadge lb-n5">N4 Certified</span>
+        <div class="ldots"><div class="ldot on-pink"></div><div class="ldot on-pink"></div><div class="ldot"></div><div class="ldot"></div><div class="ldot"></div></div>
+        <div class="jp-note">日本語が大好き 🇯🇵 — Actively learning, passionate about Japanese culture &amp; language</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2026</footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

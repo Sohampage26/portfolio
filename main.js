@@ -7,6 +7,34 @@ function toggleTheme() {
   localStorage.setItem('sp-theme', document.body.classList.contains('light') ? 'light' : 'dark');
 }
 
+// ── Nav inject + active link (must run together) ───────────────────
+(function () {
+  const nav = document.querySelector('nav[data-shared]');
+  if (!nav) return;
+
+  const page = location.pathname.split('/').pop() || 'index.html';
+
+  nav.innerHTML = `
+    <a class="nav-logo" href="index.html">SP.</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" onclick="toggleTheme()"></button>
+    </div>
+  `;
+
+  nav.querySelectorAll('.nav-links a').forEach(a => {
+    if (a.getAttribute('href') === page) {
+      a.classList.add('active');
+    }
+  });
+})();
 
 // ── Custom cursor ──────────────────────────────────────────────────
 const cursor = document.getElementById('cursor');
@@ -131,6 +159,3 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-
-

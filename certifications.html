@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications — Soham Page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; margin-bottom: 72px; }
+    .cert-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 28px 26px; transition: transform .25s, border-color .25s, background .25s; position: relative; overflow: hidden; cursor: default; }
+    .cert-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; border-radius: 0 0 20px 20px; opacity: 0; transition: opacity .3s; }
+    .cert-card:hover { transform: translateY(-5px); background: var(--card2); }
+    .cert-card:hover::after { opacity: 1; }
+    .cert-card.google { border-color: rgba(66,133,244,.18); }
+    .cert-card.google:hover { border-color: rgba(66,133,244,.4); }
+    .cert-card.google::after { background: linear-gradient(90deg,#4285f4,#34a853,#fbbc05,#ea4335); }
+    .cert-card.aws { border-color: rgba(255,153,0,.18); }
+    .cert-card.aws:hover { border-color: rgba(255,153,0,.45); }
+    .cert-card.aws::after { background: #ff9900; }
+    .cert-card.ibm { border-color: rgba(0,98,255,.18); }
+    .cert-card.ibm:hover { border-color: rgba(0,98,255,.4); }
+    .cert-card.ibm::after { background: #0062ff; }
+    .cert-card.stanford { border-color: rgba(140,21,21,.2); }
+    .cert-card.stanford:hover { border-color: rgba(140,21,21,.4); }
+    .cert-card.stanford::after { background: #8c1515; }
+    .cert-card.jlpt { border-color: rgba(255,94,138,.2); }
+    .cert-card.jlpt:hover { border-color: var(--accent2); }
+    .cert-card.jlpt::after { background: var(--accent2); }
+    .cert-icon { font-size: 34px; margin-bottom: 16px; display: block; }
+    .cert-issuer { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .cert-name { font-family: 'Cabinet Grotesk', sans-serif; font-size: 16px; font-weight: 800; line-height: 1.4; margin-bottom: 10px; letter-spacing: -.2px; }
+    .cert-desc { font-size: 12.5px; color: var(--muted); line-height: 1.65; }
+
+    .edu-list { display: flex; flex-direction: column; gap: 16px; }
+    .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 26px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; transition: border-color .2s, background .2s; }
+    .edu-card:hover { border-color: var(--border2); background: var(--card2); }
+    .edu-degree { font-family: 'Cabinet Grotesk', sans-serif; font-size: 17px; font-weight: 800; margin-bottom: 4px; letter-spacing: -.2px; }
+    .edu-school { font-size: 13px; color: var(--muted); margin-bottom: 4px; font-weight: 500; }
+    .edu-period { font-size: 12px; color: var(--accent3); font-weight: 600; }
+    .edu-score { font-family: 'Cabinet Grotesk', sans-serif; font-size: 26px; font-weight: 800; color: var(--accent); letter-spacing: -1px; text-align: right; }
+    .edu-score-label { font-size: 11px; color: var(--muted); text-align: right; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="grid-lines"></div><canvas id="bg-canvas"></canvas>
+  <div id="cursor"></div><div id="cursor-ring"></div>
+  <nav id="main-nav">
+  <a class="nav-logo" href="index.html">SP.</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="certifications.html" class="active">Certifications</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()"></button>
+  </div>
+</nav>
+
+  <div class="page-wrap">
+    <div class="sec-tag">Credentials</div>
+    <div class="sec-title">Certifications</div>
+
+    <div class="cert-grid stagger-grid reveal">
+      <div class="cert-card stanford">
+        <span class="cert-icon">&#127979;</span>
+        <div class="cert-issuer">Stanford University & DeepLearning.AI</div>
+        <div class="cert-name">Machine Learning Specialization — Andrew Ng</div>
+        <div class="cert-desc">Supervised, unsupervised, and reinforcement learning. Foundational ML algorithms and practical implementation.</div>
+      </div>
+      <div class="cert-card stanford">
+        <span class="cert-icon">&#129504;</span>
+        <div class="cert-issuer">Udemy · SuperDataScience Team</div>
+        <div class="cert-name">Machine Learning A–Z: AI — Python</div>
+        <div class="cert-desc">End-to-end ML with Python — regression, classification, clustering, NLP, deep learning, and reinforcement learning.</div>
+      </div>
+      <div class="cert-card google">
+        <span class="cert-icon">&#9729;</span>
+        <div class="cert-issuer">Google Cloud</div>
+        <div class="cert-name">Architecting with Google Compute Engine Specialization</div>
+        <div class="cert-desc">GCP infrastructure design, autoscaling, load balancing, Kubernetes Engine, and deployment automation.</div>
+      </div>
+      <div class="cert-card aws">
+        <span class="cert-icon">&#128268;</span>
+        <div class="cert-issuer">Amazon Web Services</div>
+        <div class="cert-name">AWS Academy Data Analytics</div>
+        <div class="cert-desc">Data collection, storage, processing, and visualization using AWS analytics tools and services.</div>
+      </div>
+      <div class="cert-card aws">
+        <span class="cert-icon">&#128268;</span>
+        <div class="cert-issuer">Amazon Web Services</div>
+        <div class="cert-name">AWS Academy Cloud Foundations</div>
+        <div class="cert-desc">Foundational AWS services, cloud architecture, security, and pricing models.</div>
+      </div>
+      <div class="cert-card jlpt">
+        <span class="cert-icon">&#127471;&#127477;</span>
+        <div class="cert-issuer">Japan Foundation</div>
+        <div class="cert-name">JLPT N4 — Japanese Language Proficiency Test</div>
+        <div class="cert-desc">Official JLPT N4 certification — foundational Japanese reading, listening, and vocabulary. Actively pursuing N4.</div>
+      </div>
+    </div>
+
+    <div class="sec-tag">Academic background</div>
+    <div class="sec-title">Education</div>
+    <div class="edu-list reveal">
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">B.Tech — Computer Science & Engineering</div>
+          <div class="edu-school">KIT's College of Engineering (Autonomous), Kolhapur</div>
+          <div class="edu-period">Jul 2020 – Jun 2024</div>
+        </div>
+        <div><div class="edu-score">9.16</div><div class="edu-score-label">CGPA / 10</div></div>
+      </div>
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">HSC — Higher Secondary Certificate (12th)</div>
+          <div class="edu-school">Private Junior College, Kolhapur</div>
+          <div class="edu-period">2018 – 2020</div>
+        </div>
+        <div><div class="edu-score">72%</div><div class="edu-score-label">State Board</div></div>
+      </div>
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">SSC — Secondary School Certificate (10th)</div>
+          <div class="edu-school">Private High School, Kolhapur</div>
+          <div class="edu-period">2017 – 2018</div>
+        </div>
+        <div><div class="edu-score">88.6%</div><div class="edu-score-label">State Board</div></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2026</footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

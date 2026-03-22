@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Soham Page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 52px; align-items: start; margin-bottom: 72px; }
+    .about-photo { width: 100%; border-radius: 22px; object-fit: cover; object-position: top; border: 2px solid rgba(123,110,246,.35); display: block; }
+    .about-photo-wrap { position: relative; }
+    .about-photo-glow { position: absolute; inset: 0; border-radius: 22px; background: radial-gradient(circle at 50% 100%, rgba(123,110,246,.2), transparent 65%); pointer-events: none; }
+    .about-desc { font-size: 15.5px; color: var(--muted); line-height: 1.88; margin-bottom: 24px; }
+    .info-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+    .info-row { display: flex; gap: 12px; font-size: 13.5px; padding: 11px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; transition: border-color .2s; }
+    .info-row:hover { border-color: var(--border2); }
+    .info-label { color: var(--muted); min-width: 110px; font-weight: 500; }
+    .info-val { font-weight: 500; }
+
+    .exp-list { display: flex; flex-direction: column; gap: 22px; }
+    .exp-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 26px 28px; position: relative; overflow: hidden; transition: border-color .25s, transform .25s, background .25s; }
+    .exp-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent), var(--accent2)); border-radius: 3px 0 0 3px; }
+    .exp-card:hover { border-color: var(--border2); transform: translateX(5px); background: var(--card2); }
+    .exp-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; flex-wrap: wrap; gap: 8px; }
+    .exp-role { font-family: 'Cabinet Grotesk', sans-serif; font-size: 19px; font-weight: 800; letter-spacing: -.3px; }
+    .exp-date { font-size: 12px; color: var(--accent3); background: rgba(56,232,192,.1); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(56,232,192,.2); font-weight: 600; }
+    .exp-company { font-size: 14px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+    .exp-type { display: inline-block; font-size: 11px; padding: 2px 10px; border-radius: 20px; background: rgba(123,110,246,.1); color: var(--a-light); border: 1px solid rgba(123,110,246,.22); margin-bottom: 12px; font-weight: 500; }
+    .exp-desc { font-size: 13.5px; color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
+    .exp-bullets { display: flex; flex-direction: column; gap: 7px; }
+    .exp-b { display: flex; gap: 9px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .b-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); margin-top: 8px; flex-shrink: 0; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+
+    @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="grid-lines"></div><canvas id="bg-canvas"></canvas>
+  <div id="cursor"></div><div id="cursor-ring"></div>
+  <nav id="main-nav">
+  <a class="nav-logo" href="index.html">SP.</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()"></button>
+  </div>
+</nav>
+
+  <div class="page-wrap">
+    <div class="sec-tag">Who I am</div>
+    <div class="sec-title">About Me</div>
+
+    <div class="about-grid reveal">
+      <div class="about-photo-wrap">
+        <img src="images/sp.png" alt="Soham Page" class="about-photo">
+        <div class="about-photo-glow"></div>
+      </div>
+      <div>
+        <p class="about-desc">Results-driven Software Engineer with 1.5+ years of experience building cloud-native apps, ML pipelines, and full-stack products. From Kolhapur, Maharashtra — currently working at Saffron Edge Tech where I ship Flutter apps to the Play Store, manage Kubernetes clusters, and build NLP/CNN features.</p>
+        <p class="about-desc">Beyond code, I'm a JLPT N4 certified Japanese language enthusiast, former school Best Actor, and served as President of Walk With World at KITCoEK — an IIT Bombay-awarded student body. I love Formula 1, international football, and open-world strategy games.</p>
+        <div class="info-list">
+          <div class="info-row"><span class="info-label">Name</span><span class="info-val">Soham Shrinivas Page</span></div>
+          <div class="info-row"><span class="info-label">Location</span><span class="info-val">Kolhapur, Maharashtra, India</span></div>
+          <div class="info-row"><span class="info-label">Email</span><span class="info-val">pagesoham26@gmail.com</span></div>
+          <div class="info-row"><span class="info-label">Experience</span><span class="info-val">1.5+ Years · Software Engineer</span></div>
+          <div class="info-row"><span class="info-label">Education</span><span class="info-val">B.Tech CSE — CGPI 9.16 / 10</span></div>
+          <div class="info-row"><span class="info-label">Languages</span><span class="info-val">Marathi · Hindi · English · Japanese (N4)</span></div>
+          <div class="info-row"><span class="info-label">Interests</span><span class="info-val">F1 · Football · Travel · Strategy Games</span></div>
+        </div>
+        <a href="https://drive.google.com/file/d/1ePbfyeNwIekrsbf3w6EdrPo9dPymbpDm/view" target="_blank" class="btn-primary">Download Resume</a>
+      </div>
+    </div>
+
+    <div class="sec-tag">Professional journey</div>
+    <div class="sec-title">Experience</div>
+    <div class="exp-list">
+
+      <div class="exp-card reveal">
+        <div class="exp-top">
+          <div class="exp-role">Software Engineer</div>
+          <div class="exp-date">Jan 2024 – Present</div>
+        </div>
+        <div class="exp-company">Saffron Edge Tech Universe Pvt. Ltd. &nbsp;·&nbsp; Kolhapur, MH</div>
+        <span class="exp-type">Full-time</span>
+        <div class="exp-desc">Building and deploying production-grade mobile & cloud solutions. Core engineer on Krishi Sanskriti — a Flutter farmer engagement app live on the Google Play Store.</div>
+        <div class="exp-bullets">
+          <div class="exp-b"><div class="b-dot"></div><span>Developing Krishi Sanskriti Android app with Flutter & Dart, deployed to Google Play Store</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Refactored monolith into microservices and built RESTful APIs for modularity</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Created CI/CD pipeline with Grafana, Prometheus, and SonarQube</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Deployed and managed Kubernetes clusters for scalable infrastructure</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Working on ML modules including NLP, CNN, and OCR features</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Managing cloud ops on Firebase, GCP, and AWS for backend & deployments</span></div>
+        </div>
+        <div class="exp-tags">
+          <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Kubernetes</span><span class="tag">GCP</span><span class="tag">AWS</span><span class="tag">Firebase</span><span class="tag">NLP</span><span class="tag">CNN</span><span class="tag">CI/CD</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-1">
+        <div class="exp-top">
+          <div class="exp-role">Machine Learning Intern</div>
+          <div class="exp-date">May 2023 – Oct 2023</div>
+        </div>
+        <div class="exp-company">Educational Technology · IIT Bombay &nbsp;·&nbsp; Mumbai, MH</div>
+        <span class="exp-type">Internship</span>
+        <div class="exp-desc">Research-driven internship under the Analytics, Data Science & Emerging Technologies program. Focused on Automatic Speech Recognition using CTC (Connectionist Temporal Classification).</div>
+        <div class="exp-bullets">
+          <div class="exp-b"><div class="b-dot"></div><span>Built ASR system using Python, TensorFlow, and Keras for sequence modeling</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Preprocessed large speech datasets, converting audio to MFCC features</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Implemented deep learning models with CTC loss for end-to-end speech recognition</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Collaborated with IIT Bombay researchers on evaluation and model fine-tuning</span></div>
+        </div>
+        <div class="exp-tags">
+          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">CTC</span><span class="tag">MFCC</span><span class="tag">Deep Learning</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-2">
+        <div class="exp-top">
+          <div class="exp-role">President</div>
+          <div class="exp-date">2023 – 2024</div>
+        </div>
+        <div class="exp-company">Walk With World · KITCoEK &nbsp;·&nbsp; IIT Bombay-awarded body</div>
+        <span class="exp-type">Leadership</span>
+        <div class="exp-bullets">
+          <div class="exp-b"><div class="b-dot"></div><span>Led IIT Bombay-awarded student body promoting skill sessions and global events</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Organized Model United Nations and International Student Conferences</span></div>
+          <div class="exp-b"><div class="b-dot"></div><span>Managed 20+ volunteers and coordinated with college administration</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2026</footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
