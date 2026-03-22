@@ -8,6 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
 
+
 :root {
   --bg:     #080810;
   --bg2:    #0f0f1a;
@@ -45,8 +46,10 @@ body.light {
   --card2:  rgba(255,255,255,0.95);
 }
 
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
+
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -58,12 +61,10 @@ body {
   line-height: 1.6;
 }
 
-/* ── DISPLAY FONT ── */
-.font-display {
-  font-family: 'Cabinet Grotesk', sans-serif;
-}
 
-/* ── GRID BG ── */
+.font-display { font-family: 'Cabinet Grotesk', sans-serif; }
+
+
 .grid-lines {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
   opacity: .028;
@@ -74,14 +75,14 @@ body {
   transition: opacity .4s;
 }
 
-/* ── CANVAS ── */
+
 #bg-canvas {
   position: fixed; top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none; z-index: 0;
 }
 
-/* ── CURSOR ── */
+
 #cursor {
   width: 10px; height: 10px; border-radius: 50%;
   background: var(--accent);
@@ -99,7 +100,7 @@ body {
   opacity: .45;
 }
 
-/* ── NAV ── */
+
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
@@ -111,6 +112,7 @@ nav {
   transition: background .45s, border-color .45s;
 }
 body.light nav { background: rgba(240,238,255,0.82); }
+
 
 .nav-logo {
   font-family: 'Cabinet Grotesk', sans-serif;
@@ -140,6 +142,7 @@ body.light .nav-links a.active {
 }
 .nav-right { display: flex; align-items: center; gap: 14px; }
 
+
 .theme-btn {
   width: 40px; height: 22px; border-radius: 11px;
   background: var(--accent); border: none; cursor: pointer;
@@ -152,14 +155,14 @@ body.light .nav-links a.active {
 }
 body.light .theme-btn::after { transform: translateX(18px); }
 
-/* ── PAGE WRAPPER ── */
+
 .page-wrap {
   position: relative; z-index: 1;
   max-width: 1120px; margin: 0 auto;
   padding: 96px 48px 80px;
 }
 
-/* ── SECTION HEADINGS ── */
+
 .sec-tag {
   font-size: 11px; font-weight: 600; letter-spacing: .16em;
   color: var(--accent3); text-transform: uppercase; margin-bottom: 10px;
@@ -176,7 +179,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   margin-bottom: 44px; line-height: 1.1;
 }
 
-/* ── CARDS ── */
+
 .card {
   background: var(--card); border: 1px solid var(--border);
   border-radius: 18px; padding: 26px 28px;
@@ -184,7 +187,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 }
 .card:hover { border-color: var(--border2); background: var(--card2); }
 
-/* ── BUTTONS ── */
+
 .btn-primary {
   padding: 13px 30px; border-radius: 10px;
   font-size: 14.5px; font-weight: 600;
@@ -217,7 +220,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   transform: translateY(-2px);
 }
 
-/* ── TAGS ── */
+
 .tag {
   font-size: 11px; padding: 3px 10px; border-radius: 20px;
   background: var(--bg3); border: 1px solid var(--border);
@@ -229,7 +232,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   border: 1px solid rgba(123,110,246,0.22); font-weight: 500;
 }
 
-/* ── STATS BAR ── */
+
 .stats-bar {
   display: flex; position: relative; z-index: 1;
   border-top: 1px solid var(--border);
@@ -250,7 +253,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 }
 .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 500; }
 
-/* ── REVEAL ── */
+
 .reveal {
   opacity: 0; transform: translateY(32px);
   transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
@@ -260,7 +263,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 .reveal-delay-2 { transition-delay: .24s; }
 .reveal-delay-3 { transition-delay: .36s; }
 
-/* ── MODAL ── */
+
 .modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.85);
@@ -312,7 +315,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   background: var(--accent); margin-top: 7px; flex-shrink: 0;
 }
 
-/* ── AVAIL BADGE ── */
+
 .avail {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 12.5px; color: var(--accent3); font-weight: 600;
@@ -323,7 +326,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 }
 @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.25;transform:scale(.7)} }
 
-/* ── FOOTER ── */
+
 footer {
   text-align: center; padding: 30px 48px;
   font-size: 13px; color: var(--faint);
@@ -331,12 +334,128 @@ footer {
   position: relative; z-index: 1; font-weight: 500;
 }
 
+
+/* ── HAMBURGER BUTTON (mobile only) ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px; height: 38px;
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 300;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  width: 100%; height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+
+/* ── DRAWER OVERLAY ── */
+.drawer-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 400;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.drawer-overlay.open { display: block; opacity: 1; }
+
+/* ── DRAWER PANEL (left side) ── */
+.drawer {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 270px;
+  background: var(--bg2);
+  border-right: 1px solid var(--border2);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 6px 0 32px rgba(0,0,0,0.35);
+}
+.drawer.open { transform: translateX(0); }
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 64px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.drawer-logo {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: 800; font-size: 22px;
+  color: var(--accent); letter-spacing: -1px;
+  text-decoration: none;
+}
+.drawer-close {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--card2); border: 1px solid var(--border2);
+  color: var(--text); cursor: pointer; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.drawer-close:hover { background: var(--border2); }
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px;
+  gap: 4px;
+  flex: 1;
+}
+.drawer-links a {
+  font-size: 15px; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  padding: 12px 16px; border-radius: 10px;
+  transition: color .2s, background .2s;
+  letter-spacing: .01em;
+}
+.drawer-links a:hover { color: var(--text); background: var(--card2); }
+.drawer-links a.active {
+  color: #fff !important;
+  background: var(--accent) !important;
+  font-weight: 600;
+}
+body.light .drawer-links a.active {
+  color: #fff !important;
+  background: var(--accent) !important;
+}
+
+.drawer-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.drawer-footer-label {
+  font-size: 13px; color: var(--muted); font-weight: 500;
+}
+
+
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .page-wrap { padding: 88px 20px 60px; }
   footer { padding: 24px 20px; }
+  .nav-hamburger { display: flex; }
 }
+
 
 </style>
   <style>
@@ -351,7 +470,6 @@ footer {
       gap: 64px; align-items: center;
       max-width: 1120px; margin: 0 auto; width: 100%;
     }
-    /* Status row */
     .status-row {
       display: flex; flex-direction: column;
       align-items: flex-start; gap: 10px;
@@ -371,7 +489,6 @@ footer {
       border: 1px solid var(--border2); color: var(--muted);
       letter-spacing: .02em;
     }
-    /* Heading */
     .hero h1 {
       font-family: 'Cabinet Grotesk', sans-serif;
       font-weight: 800; letter-spacing: -2.5px;
@@ -379,7 +496,6 @@ footer {
       font-size: clamp(44px, 6vw, 72px);
     }
     .hero h1 .name { color: var(--accent); display: block; }
-    /* Typewriter */
     .typewriter-wrap {
       margin-bottom: 20px; min-height: 38px;
       display: flex; align-items: center; gap: 8px;
@@ -396,7 +512,6 @@ footer {
       animation: cursorBlink .75s step-end infinite; vertical-align: middle;
     }
     @keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
-    /* Desc */
     .hero-desc {
       font-size: 15.5px; color: var(--muted);
       line-height: 1.85; max-width: 520px; margin-bottom: 32px;
@@ -404,28 +519,16 @@ footer {
     }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* Photo */
     .photo-col { position: relative; display: flex; justify-content: center; }
-    .photo-frame {
-      position: relative; width: 300px; height: 380px;
-    }
+    .photo-frame { position: relative; width: 300px; height: 380px; }
     .photo-rings {
       position: absolute; inset: -20px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
     }
     .pr { position: absolute; border-radius: 50%; }
-    .pr1 {
-      inset: 0; border: 1.5px solid rgba(123,110,246,.35);
-      animation: spinRing 16s linear infinite;
-    }
-    .pr2 {
-      inset: -18px; border: 1px dashed rgba(255,94,138,.25);
-      animation: spinRing 26s linear infinite reverse;
-    }
-    .pr3 {
-      inset: -36px; border: 1px solid rgba(56,232,192,.12);
-      animation: spinRing 38s linear infinite;
-    }
+    .pr1 { inset: 0; border: 1.5px solid rgba(123,110,246,.35); animation: spinRing 16s linear infinite; }
+    .pr2 { inset: -18px; border: 1px dashed rgba(255,94,138,.25); animation: spinRing 26s linear infinite reverse; }
+    .pr3 { inset: -36px; border: 1px solid rgba(56,232,192,.12); animation: spinRing 38s linear infinite; }
     @keyframes spinRing { to { transform: rotate(360deg); } }
     .photo-img {
       width: 300px; height: 380px;
@@ -441,7 +544,6 @@ footer {
       background: radial-gradient(ellipse, rgba(123,110,246,.4), transparent 70%);
       z-index: 1; pointer-events: none;
     }
-    /* Floating badges */
     .float-badge {
       position: absolute; z-index: 3;
       background: var(--bg2); border: 1px solid var(--border2);
@@ -455,7 +557,6 @@ footer {
     .float-badge .fb-num { font-family:'Cabinet Grotesk',sans-serif; font-size:18px; font-weight:800; color:var(--accent); display:block; }
     @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 
-    /* Orbs */
     .orb1 {
       position: absolute; right: 0; top: 20%; pointer-events: none;
       width: 500px; height: 500px; border-radius: 50%;
@@ -473,7 +574,6 @@ footer {
       50%{transform:scale(1.12);opacity:1}
     }
 
-    /* Hero entry animations */
     @keyframes fadeSlide {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -495,28 +595,118 @@ footer {
       .float-badge.b2 { left: -10px; }
       .hero { padding: 88px 20px 40px; }
     }
+
+    /* ── MOBILE: Hero & Stats ── */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 20px 40px;
+        min-height: auto;
+        align-items: flex-start;
+      }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      /* Photo above content on mobile */
+      .photo-col { order: -1; }
+      .photo-frame { width: 180px; height: 230px; }
+      .photo-img  { width: 180px; height: 230px; border-radius: 20px; }
+
+      /* Hide floating badges on very narrow screens — they clip */
+      .float-badge { display: none; }
+
+      /* Hero text */
+      .hero h1 { letter-spacing: -1.5px; }
+      .hero-desc { font-size: 14.5px; margin-bottom: 24px; }
+
+      /* Buttons full-width stack */
+      .hero-btns { flex-direction: column; gap: 10px; }
+      .hero-btns .btn-primary,
+      .hero-btns .btn-outline {
+        width: 100%; text-align: center;
+        padding: 13px 20px;
+      }
+
+      /* Hero pill wraps gracefully */
+      .hero-pill {
+        font-size: 11px;
+        white-space: normal;
+        line-height: 1.5;
+      }
+
+      /* Stats bar: 2-column grid on mobile */
+      .stats-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-left: 1px solid var(--border);
+      }
+      .stat {
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 18px 12px;
+      }
+      .stat:nth-child(even) { border-right: none; }
+      /* last lone stat spans full width if odd count */
+      .stat:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        border-right: none;
+      }
+      .stat-num { font-size: 26px; }
+    }
+
+    /* ── EXTRA SMALL ── */
+    @media (max-width: 400px) {
+      .photo-frame { width: 150px; height: 190px; }
+      .photo-img  { width: 150px; height: 190px; }
+      .exp-badge  { font-size: 11px; }
+    }
   </style>
 </head>
 <body>
-  <div class="grid-lines"></div>
-  <canvas id="bg-canvas"></canvas>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
 
-  <nav id="main-nav">
-  <a class="nav-logo" href="index.html">SP.</a>
-  <div class="nav-links">
+<!-- ── MOBILE DRAWER ── -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <a class="drawer-logo" href="index.html">SP.</a>
+    <button class="drawer-close" onclick="closeDrawer()">&#x2715;</button>
+  </div>
+  <nav class="drawer-links">
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="skills.html">Skills</a>
     <a href="projects.html">Projects</a>
     <a href="certifications.html">Certifications</a>
     <a href="contact.html">Contact</a>
-  </div>
-  <div class="nav-right">
+  </nav>
+  <div class="drawer-footer">
+    <span class="drawer-footer-label">Switch theme</span>
     <button class="theme-btn" onclick="toggleTheme()"></button>
   </div>
-</nav>
+</div>
+
+  <div class="grid-lines"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">SP.</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" onclick="toggleTheme()"></button>
+    </div>
+    <button class="nav-hamburger" onclick="openDrawer()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
   <div class="hero">
     <div class="orb1"></div>
@@ -525,8 +715,8 @@ footer {
       <div class="hero-content">
         <div class="status-row">
           <div class="avail"><div class="avail-dot"></div>Open to opportunities</div>
-          <div class="exp-badge">&#9889; 1.5+ Years Experience · Software Engineer</div>
-          <div class="hero-pill">B.Tech CSE &nbsp;·&nbsp; CGPI 9.16 &nbsp;·&nbsp; IIT Bombay ML Intern &nbsp;·&nbsp; Published Researcher</div>
+          <div class="exp-badge">&#9889; 1.5+ Years Experience &middot; Software Engineer</div>
+          <div class="hero-pill">B.Tech CSE &nbsp;&middot;&nbsp; CGPI 9.16 &nbsp;&middot;&nbsp; IIT Bombay ML Intern &nbsp;&middot;&nbsp; Published Researcher</div>
         </div>
         <h1>Hi, I'm<span class="name">Soham Page.</span></h1>
         <div class="typewriter-wrap">
@@ -563,16 +753,27 @@ footer {
   </div>
 
   <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2024</footer>
+
   <script>
 // ── Theme ──────────────────────────────────────────────────────────
 const savedTheme = localStorage.getItem('sp-theme');
 if (savedTheme === 'light') document.body.classList.add('light');
-
 function toggleTheme() {
   document.body.classList.toggle('light');
   localStorage.setItem('sp-theme', document.body.classList.contains('light') ? 'light' : 'dark');
 }
 
+// ── Drawer ──────────────────────────────────────────────────────────
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 // ── Custom cursor ──────────────────────────────────────────────────
 const cursor = document.getElementById('cursor');
@@ -604,7 +805,6 @@ if (cursor && ring) {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, pts = [];
-
   function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   function mkP() {
     return {
@@ -616,7 +816,6 @@ if (cursor && ring) {
     };
   }
   function init() { pts = Array.from({ length: 85 }, mkP); }
-
   function draw() {
     ctx.clearRect(0, 0, W, H);
     const light = document.body.classList.contains('light');
@@ -651,9 +850,6 @@ if (cursor && ring) {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       e.target.classList.add('visible');
-      e.target.querySelectorAll('.skill-fill').forEach(f => {
-        setTimeout(() => { f.style.width = f.dataset.w + '%'; }, 100);
-      });
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
@@ -696,12 +892,10 @@ function closeModal() {
   if (o) o.classList.remove('open');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-
-
-
-</script>
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeModal(); closeDrawer(); }
+});
+  </script>
   <script>
     const words = ['scalable ML systems','Flutter apps','cloud-native APIs','full-stack products','DevOps pipelines'];
     let wi = 0, ci = 0, del = false;
