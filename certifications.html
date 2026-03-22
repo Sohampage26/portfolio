@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
 
+
 :root {
   --bg:     #080810;
   --bg2:    #0f0f1a;
@@ -44,8 +45,10 @@ body.light {
   --card2:  rgba(255,255,255,0.95);
 }
 
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
+
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -57,10 +60,12 @@ body {
   line-height: 1.6;
 }
 
+
 /* ── DISPLAY FONT ── */
 .font-display {
   font-family: 'Cabinet Grotesk', sans-serif;
 }
+
 
 /* ── GRID BG ── */
 .grid-lines {
@@ -73,12 +78,14 @@ body {
   transition: opacity .4s;
 }
 
+
 /* ── CANVAS ── */
 #bg-canvas {
   position: fixed; top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none; z-index: 0;
 }
+
 
 /* ── CURSOR ── */
 #cursor {
@@ -98,6 +105,7 @@ body {
   opacity: .45;
 }
 
+
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -110,6 +118,7 @@ nav {
   transition: background .45s, border-color .45s;
 }
 body.light nav { background: rgba(240,238,255,0.82); }
+
 
 .nav-logo {
   font-family: 'Cabinet Grotesk', sans-serif;
@@ -139,6 +148,7 @@ body.light .nav-links a.active {
 }
 .nav-right { display: flex; align-items: center; gap: 14px; }
 
+
 .theme-btn {
   width: 40px; height: 22px; border-radius: 11px;
   background: var(--accent); border: none; cursor: pointer;
@@ -151,12 +161,14 @@ body.light .nav-links a.active {
 }
 body.light .theme-btn::after { transform: translateX(18px); }
 
+
 /* ── PAGE WRAPPER ── */
 .page-wrap {
   position: relative; z-index: 1;
   max-width: 1120px; margin: 0 auto;
   padding: 96px 48px 80px;
 }
+
 
 /* ── SECTION HEADINGS ── */
 .sec-tag {
@@ -175,6 +187,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   margin-bottom: 44px; line-height: 1.1;
 }
 
+
 /* ── CARDS ── */
 .card {
   background: var(--card); border: 1px solid var(--border);
@@ -182,6 +195,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   transition: border-color .25s, transform .25s, background .25s;
 }
 .card:hover { border-color: var(--border2); background: var(--card2); }
+
 
 /* ── BUTTONS ── */
 .btn-primary {
@@ -216,6 +230,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   transform: translateY(-2px);
 }
 
+
 /* ── TAGS ── */
 .tag {
   font-size: 11px; padding: 3px 10px; border-radius: 20px;
@@ -227,6 +242,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   background: rgba(123,110,246,0.1); color: var(--a-light);
   border: 1px solid rgba(123,110,246,0.22); font-weight: 500;
 }
+
 
 /* ── STATS BAR ── */
 .stats-bar {
@@ -249,6 +265,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 }
 .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 500; }
 
+
 /* ── REVEAL ── */
 .reveal {
   opacity: 0; transform: translateY(32px);
@@ -258,6 +275,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 .reveal-delay-1 { transition-delay: .12s; }
 .reveal-delay-2 { transition-delay: .24s; }
 .reveal-delay-3 { transition-delay: .36s; }
+
 
 /* ── MODAL ── */
 .modal-overlay {
@@ -311,6 +329,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   background: var(--accent); margin-top: 7px; flex-shrink: 0;
 }
 
+
 /* ── AVAIL BADGE ── */
 .avail {
   display: inline-flex; align-items: center; gap: 8px;
@@ -322,6 +341,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 }
 @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.25;transform:scale(.7)} }
 
+
 /* ── FOOTER ── */
 footer {
   text-align: center; padding: 30px 48px;
@@ -330,12 +350,14 @@ footer {
   position: relative; z-index: 1; font-weight: 500;
 }
 
+
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .page-wrap { padding: 88px 20px 60px; }
   footer { padding: 24px 20px; }
 }
+
 
 </style>
   <style>
@@ -364,6 +386,7 @@ footer {
     .cert-name { font-family: 'Cabinet Grotesk', sans-serif; font-size: 16px; font-weight: 800; line-height: 1.4; margin-bottom: 10px; letter-spacing: -.2px; }
     .cert-desc { font-size: 12.5px; color: var(--muted); line-height: 1.65; }
 
+
     .edu-list { display: flex; flex-direction: column; gap: 16px; }
     .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 26px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; transition: border-color .2s, background .2s; }
     .edu-card:hover { border-color: var(--border2); background: var(--card2); }
@@ -372,6 +395,93 @@ footer {
     .edu-period { font-size: 12px; color: var(--accent3); font-weight: 600; }
     .edu-score { font-family: 'Cabinet Grotesk', sans-serif; font-size: 26px; font-weight: 800; color: var(--accent); letter-spacing: -1px; text-align: right; }
     .edu-score-label { font-size: 11px; color: var(--muted); text-align: right; font-weight: 600; }
+
+    /* ── MOBILE: Certifications & Education ── */
+    @media (max-width: 768px) {
+      /* Cert grid: single column on small screens */
+      .cert-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 48px;
+      }
+
+      /* Cert cards: slightly tighter padding */
+      .cert-card {
+        padding: 22px 20px;
+      }
+
+      /* Disable hover lift on touch (no hover intent) */
+      .cert-card:hover {
+        transform: none;
+      }
+
+      /* Edu cards: stack score below info */
+      .edu-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 20px;
+        gap: 10px;
+      }
+
+      /* Score right-aligned block becomes left-aligned row */
+      .edu-card > div:last-child {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+
+      .edu-score {
+        font-size: 22px;
+        text-align: left;
+      }
+
+      .edu-score-label {
+        text-align: left;
+        font-size: 12px;
+      }
+
+      .edu-degree {
+        font-size: 15px;
+      }
+
+      .edu-school {
+        font-size: 12.5px;
+      }
+
+      /* Section title tighter spacing on mobile */
+      .sec-title {
+        margin-bottom: 28px;
+      }
+
+      /* Modal padding on small screens */
+      .modal-body {
+        padding: 20px 18px;
+      }
+
+      .modal-title {
+        font-size: 20px;
+      }
+    }
+
+    /* ── EXTRA SMALL (< 400px) ── */
+    @media (max-width: 400px) {
+      .cert-icon {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .cert-name {
+        font-size: 14.5px;
+      }
+
+      .cert-desc {
+        font-size: 12px;
+      }
+
+      .edu-degree {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -392,9 +502,11 @@ footer {
   </div>
 </nav>
 
+
   <div class="page-wrap">
     <div class="sec-tag">Credentials</div>
     <div class="sec-title">Certifications</div>
+
 
     <div class="cert-grid stagger-grid reveal">
       <div class="cert-card stanford">
@@ -435,6 +547,7 @@ footer {
       </div>
     </div>
 
+
     <div class="sec-tag">Academic background</div>
     <div class="sec-title">Education</div>
     <div class="edu-list reveal">
@@ -465,16 +578,19 @@ footer {
     </div>
   </div>
 
+
   <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2024</footer>
   <script>
 // ── Theme ──────────────────────────────────────────────────────────
 const savedTheme = localStorage.getItem('sp-theme');
 if (savedTheme === 'light') document.body.classList.add('light');
 
+
 function toggleTheme() {
   document.body.classList.toggle('light');
   localStorage.setItem('sp-theme', document.body.classList.contains('light') ? 'light' : 'dark');
 }
+
 
 
 // ── Custom cursor ──────────────────────────────────────────────────
@@ -501,12 +617,14 @@ if (cursor && ring) {
   });
 }
 
+
 // ── Particle network canvas ────────────────────────────────────────
 (function () {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, pts = [];
+
 
   function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   function mkP() {
@@ -519,6 +637,7 @@ if (cursor && ring) {
     };
   }
   function init() { pts = Array.from({ length: 85 }, mkP); }
+
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
@@ -548,6 +667,7 @@ if (cursor && ring) {
   window.addEventListener('resize', () => { resize(); init(); });
 })();
 
+
 // ── Scroll reveal ──────────────────────────────────────────────────
 (function () {
   const obs = new IntersectionObserver(entries => {
@@ -561,6 +681,7 @@ if (cursor && ring) {
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
 })();
+
 
 // ── Stagger children reveal ────────────────────────────────────────
 (function () {
@@ -577,6 +698,7 @@ if (cursor && ring) {
     obs.observe(g);
   });
 })();
+
 
 // ── Modal ──────────────────────────────────────────────────────────
 function openModal(data) {
@@ -600,10 +722,6 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-
-
-
-</script>
+  </script>
 </body>
 </html>
