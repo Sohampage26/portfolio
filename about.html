@@ -369,6 +369,28 @@ footer {
   </style>
 </head>
 <body>
+  <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+  <div class="drawer" id="drawer">
+    <div class="drawer-header">
+      <a class="drawer-logo" href="index.html">SP.</a>
+      <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
+    </div>
+    <div class="drawer-links">
+      <a href="index.html" onclick="closeDrawer()">Home</a>
+      <a href="about.html" class="active" onclick="closeDrawer()">About</a>
+      <a href="skills.html" onclick="closeDrawer()">Skills</a>
+      <a href="projects.html" onclick="closeDrawer()">Projects</a>
+      <a href="certifications.html" onclick="closeDrawer()">Certifications</a>
+      <a href="contact.html" onclick="closeDrawer()">Contact</a>
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-theme">
+        <span>Theme</span>
+        <button class="theme-btn" onclick="toggleTheme()"></button>
+      </div>
+    </div>
+  </div>
+
   <div class="grid-lines"></div><canvas id="bg-canvas"></canvas>
   <div id="cursor"></div><div id="cursor-ring"></div>
   <nav id="main-nav">
@@ -383,6 +405,7 @@ footer {
   </div>
   <div class="nav-right">
     <button class="theme-btn" onclick="toggleTheme()"></button>
+    <button class="hamburger" onclick="openDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -472,7 +495,7 @@ footer {
     </div>
   </div>
 
-  <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2024</footer>
+  <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2026</footer>
   <script>
 // ── Theme ──────────────────────────────────────────────────────────
 const savedTheme = localStorage.getItem('sp-theme');
