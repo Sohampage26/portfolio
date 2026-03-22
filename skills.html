@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skills — Soham Page</title>
   
   
@@ -505,6 +508,45 @@ footer {
 @media (max-width: 380px) {
   .lang-grid { grid-template-columns: 1fr !important; }
   .ach-grid { grid-template-columns: 1fr !important; }
+}
+
+
+/* ── NAV FORCE FIX ── */
+nav {
+  display: flex !important;
+  position: fixed !important;
+  top: 0 !important; left: 0 !important; right: 0 !important;
+  z-index: 9999 !important;
+  height: 64px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 48px !important;
+  background: rgba(8,8,16,0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
+body.light nav { background: rgba(240,238,255,0.92) !important; }
+.nav-links { display: flex !important; gap: 4px !important; }
+.nav-right { display: flex !important; align-items: center !important; gap: 14px !important; }
+.hamburger { display: none; }
+@media (max-width: 768px) {
+  nav { padding: 0 20px !important; }
+  .nav-links { display: none !important; }
+  .hamburger { 
+    display: flex !important; 
+    flex-direction: column !important;
+    gap: 5px !important;
+    cursor: pointer !important;
+    padding: 6px !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  .hamburger span {
+    display: block !important;
+    width: 24px !important; height: 2px !important;
+    background: var(--text) !important;
+    border-radius: 2px !important;
+  }
 }
 
 </style>
