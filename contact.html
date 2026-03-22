@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Soham Page</title>
-  
-  
-<style>
+  <style>
 @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
 
@@ -342,261 +337,56 @@ footer {
   footer { padding: 24px 20px; }
 }
 
-/* ── MOBILE DRAWER ── */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 6px;
-  border: none;
-  background: transparent;
-  z-index: 201;
-}
-.hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: transform .3s, opacity .3s, width .3s;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-.drawer-overlay {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 299;
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  transition: opacity .3s;
-}
-.drawer-overlay.open { opacity: 1; }
-
-.drawer {
-  position: fixed;
-  top: 0; right: -280px;
-  width: 280px; height: 100vh;
-  background: var(--bg2);
-  border-left: 1px solid var(--border);
-  z-index: 300;
-  transition: right .32s cubic-bezier(.4,0,.2,1);
-  display: flex; flex-direction: column;
-  padding: 0;
-}
-.drawer.open { right: 0; }
-
-.drawer-header {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding: 20px 24px;
-  border-bottom: 1px solid var(--border);
-}
-.drawer-logo {
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-weight: 800; font-size: 20px;
-  color: var(--accent); text-decoration: none;
-}
-.drawer-close {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--card2); border: 1px solid var(--border);
-  color: var(--text); cursor: pointer; font-size: 16px;
-  display: flex; align-items: center; justify-content: center;
-  transition: background .2s;
-}
-.drawer-close:hover { background: var(--border); }
-
-.drawer-links {
-  display: flex; flex-direction: column;
-  padding: 16px 16px;
-  flex: 1;
-  gap: 4px;
-}
-.drawer-links a {
-  font-size: 15px; font-weight: 500;
-  color: var(--muted); text-decoration: none;
-  padding: 13px 16px; border-radius: 10px;
-  transition: color .2s, background .2s;
-  letter-spacing: .01em;
-}
-.drawer-links a:hover { color: var(--text); background: var(--card2); }
-.drawer-links a.active {
-  color: #fff !important;
-  background: var(--accent) !important;
-  font-weight: 600;
-}
-
-.drawer-footer {
-  padding: 20px 24px;
-  border-top: 1px solid var(--border);
-}
-.drawer-theme {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  font-size: 13px; color: var(--muted);
-}
-
-/* ── MOBILE RESPONSIVE ── */
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
-  .nav-links { display: none !important; }
-
-  nav { padding: 0 20px; height: 58px; }
-
-  .page-wrap { padding: 78px 18px 60px; }
-
-  .sec-title { font-size: 28px; margin-bottom: 28px; }
-
-  .stats-bar { flex-wrap: wrap; }
-  .stat { min-width: 50%; border-right: none !important;
-    border-bottom: 1px solid var(--border); }
-  .stat:nth-child(odd) { border-right: 1px solid var(--border) !important; }
-
-  /* About */
-  .about-grid { grid-template-columns: 1fr !important; gap: 28px; }
-  .about-photo { max-height: 280px; object-fit: cover; }
-
-  /* Skills */
-  .skills-grid { grid-template-columns: 1fr !important; }
-  .lang-grid { grid-template-columns: 1fr 1fr !important; }
-
-  /* Projects */
-  .proj-grid { grid-template-columns: 1fr !important; }
-  .fl-grid { grid-template-columns: 1fr !important; }
-  .ach-grid { grid-template-columns: 1fr 1fr !important; }
-
-  /* Certifications */
-  .cert-grid { grid-template-columns: 1fr !important; }
-  .edu-card { flex-direction: column; gap: 8px; }
-  .edu-score { text-align: left !important; }
-  .edu-score-label { text-align: left !important; }
-
-  /* Contact */
-  .contact-wrap { grid-template-columns: 1fr !important; }
-
-  /* Filter bar */
-  .filter-bar { gap: 6px; }
-  .filter-btn { font-size: 11.5px; padding: 6px 12px; }
-
-  /* Stack pills */
-  .stack-pills { gap: 7px; }
-  .stack-pill { font-size: 12px; padding: 7px 13px; }
-
-  /* Hero */
-  .hero { padding: 78px 18px 40px; }
-  .hero-inner { grid-template-columns: 1fr !important; gap: 32px; }
-  .photo-col { order: -1; }
-  .photo-frame { width: 180px !important; height: 230px !important; margin: 0 auto; }
-  .photo-img { width: 180px !important; height: 230px !important; }
-  .hero h1 { font-size: 38px !important; }
-
-  /* Exp */
-  .exp-list { gap: 16px; }
-  .exp-top { flex-direction: column; gap: 6px; }
-
-  /* Modal */
-  .modal { border-radius: 16px; }
-  .modal-img { height: 180px; }
-  .modal-body { padding: 20px; }
-
-  footer { padding: 20px 18px; font-size: 12px; }
-}
-
-@media (max-width: 380px) {
-  .lang-grid { grid-template-columns: 1fr !important; }
-  .ach-grid { grid-template-columns: 1fr !important; }
-}
-
-
-/* ── NAV FORCE FIX ── */
-nav {
-  display: flex !important;
-  position: fixed !important;
-  top: 0 !important; left: 0 !important; right: 0 !important;
-  z-index: 9999 !important;
-  height: 64px !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 0 48px !important;
-  background: rgba(8,8,16,0.92) !important;
-  backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-}
-body.light nav { background: rgba(240,238,255,0.92) !important; }
-.nav-links { display: flex !important; gap: 4px !important; }
-.nav-right { display: flex !important; align-items: center !important; gap: 14px !important; }
-.hamburger { display: none; }
-@media (max-width: 768px) {
-  nav { padding: 0 20px !important; }
-  .nav-links { display: none !important; }
-  .hamburger { 
-    display: flex !important; 
-    flex-direction: column !important;
-    gap: 5px !important;
-    cursor: pointer !important;
-    padding: 6px !important;
-    border: none !important;
-    background: transparent !important;
-  }
-  .hamburger span {
-    display: block !important;
-    width: 24px !important; height: 2px !important;
-    background: var(--text) !important;
-    border-radius: 2px !important;
-  }
-}
-
 </style>
+  <style>
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+    .avail-banner { background: rgba(56,232,192,.06); border: 1px solid rgba(56,232,192,.18); border-radius: 16px; padding: 22px 26px; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+    .ab-icon { font-size: 30px; flex-shrink: 0; }
+    .ab-text { font-size: 14px; color: var(--text); line-height: 1.65; }
+    .ab-text strong { color: var(--accent3); }
+
+    .contact-items { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+    .c-item { display: flex; align-items: center; gap: 16px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 20px; text-decoration: none; color: var(--text); transition: border-color .2s, transform .2s, background .2s; }
+    .c-item:hover { border-color: var(--accent); transform: translateX(5px); background: var(--card2); }
+    .c-icon-wrap { width: 44px; height: 44px; border-radius: 12px; background: rgba(123,110,246,.1); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; border: 1px solid rgba(123,110,246,.18); }
+    .c-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+    .c-val { font-size: 13.5px; font-weight: 600; }
+
+    .social-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .s-btn { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; background: var(--card); border: 1px solid var(--border); color: var(--text); text-decoration: none; font-size: 13px; font-weight: 600; transition: border-color .2s, transform .2s, background .2s; letter-spacing: .01em; }
+    .s-btn:hover { border-color: var(--accent); transform: translateY(-2px); background: var(--card2); }
+
+    .form-card { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 34px; }
+    .form-title { font-family: 'Cabinet Grotesk', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 24px; letter-spacing: -.3px; }
+    .form-group { margin-bottom: 18px; }
+    .form-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 7px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+    .form-input, .form-textarea { width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 11px; padding: 13px 16px; color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; transition: border-color .2s; outline: none; }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; padding: 14px; border-radius: 11px; background: var(--accent); color: #fff; border: none; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: .02em; transition: opacity .2s, transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(123,110,246,.3); }
+    .form-submit:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(123,110,246,.4); }
+    .form-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 12px; }
+
+    @media (max-width: 760px) { .contact-wrap { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-  </div>
-
-    <nav>
-    <a class="nav-logo" href="index.html">SP.</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="certifications.html">Certifications</a>
-      <a href="contact.html" class="active">Contact</a>
-    </div>
-    <div class="nav-right">
-      <button class="theme-btn" onclick="toggleTheme()"></button>
-      <button class="hamburger" onclick="openDrawer()" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
-  <div class="drawer" id="drawer">
-    <div class="drawer-header">
-      <a class="drawer-logo" href="index.html">SP.</a>
-      <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
-    </div>
-    <div class="drawer-links">
-      <a href="index.html" onclick="closeDrawer()">Home</a>
-      <a href="about.html" onclick="closeDrawer()">About</a>
-      <a href="skills.html" onclick="closeDrawer()">Skills</a>
-      <a href="projects.html" onclick="closeDrawer()">Projects</a>
-      <a href="certifications.html" onclick="closeDrawer()">Certifications</a>
-      <a href="contact.html" class="active" onclick="closeDrawer()">Contact</a>
-    </div>
-    <div class="drawer-footer">
-      <div class="drawer-theme">
-        <span>Switch theme</span>
-        <button class="theme-btn" onclick="toggleTheme()"></button>
-      </div>
-    </div>
-  </div>
-
   <div class="grid-lines"></div><canvas id="bg-canvas"></canvas>
   <div id="cursor"></div><div id="cursor-ring"></div>
-
+  <nav id="main-nav">
+  <a class="nav-logo" href="index.html">SP.</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()"></button>
+  </div>
+</nav>
 
   <div class="page-wrap">
     <div class="sec-tag">Get in touch</div>
@@ -661,10 +451,8 @@ body.light nav { background: rgba(240,238,255,0.92) !important; }
     </div>
   </div>
 
-  <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2026</footer>
-  
-  
-<script>
+  <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2024</footer>
+  <script>
 // ── Theme ──────────────────────────────────────────────────────────
 const savedTheme = localStorage.getItem('sp-theme');
 if (savedTheme === 'light') document.body.classList.add('light');
@@ -802,23 +590,45 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 
 
 
-// ── Mobile Drawer ──────────────────────────────────────────────────
-function openDrawer() {
-  document.getElementById('drawer').classList.add('open');
-  document.getElementById('drawer-overlay').style.display = 'block';
-  setTimeout(() => document.getElementById('drawer-overlay').classList.add('open'), 10);
-  document.body.style.overflow = 'hidden';
-  document.querySelector('.hamburger').classList.add('open');
-}
-function closeDrawer() {
-  document.getElementById('drawer').classList.remove('open');
-  document.getElementById('drawer-overlay').classList.remove('open');
-  setTimeout(() => { document.getElementById('drawer-overlay').style.display = 'none'; }, 300);
-  document.body.style.overflow = '';
-  const ham = document.querySelector('.hamburger');
-  if (ham) ham.classList.remove('open');
-}
-
 </script>
+  <script>
+    const form = document.getElementById('contact-form');
+    const btn  = document.getElementById('submit-btn');
+    const note = document.getElementById('form-note');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      btn.textContent = 'Sending...';
+      btn.style.opacity = '.7';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          const data = await res.json();
+          const msg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Something went wrong.';
+          note.textContent = '⚠ ' + msg;
+          note.style.color = 'var(--accent2)';
+          btn.textContent = 'Send Message →';
+          btn.style.opacity = '1';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        note.textContent = '⚠ Network error — please try again.';
+        note.style.color = 'var(--accent2)';
+        btn.textContent = 'Send Message →';
+        btn.style.opacity = '1';
+        btn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>

@@ -2,14 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soham Page — Software Engineer</title>
-  
-  
-<style>
+  <style>
 @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
 
@@ -343,264 +338,185 @@ footer {
   footer { padding: 24px 20px; }
 }
 
-/* ── MOBILE DRAWER ── */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 6px;
-  border: none;
-  background: transparent;
-  z-index: 201;
-}
-.hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: transform .3s, opacity .3s, width .3s;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-.drawer-overlay {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 299;
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  transition: opacity .3s;
-}
-.drawer-overlay.open { opacity: 1; }
-
-.drawer {
-  position: fixed;
-  top: 0; right: -280px;
-  width: 280px; height: 100vh;
-  background: var(--bg2);
-  border-left: 1px solid var(--border);
-  z-index: 300;
-  transition: right .32s cubic-bezier(.4,0,.2,1);
-  display: flex; flex-direction: column;
-  padding: 0;
-}
-.drawer.open { right: 0; }
-
-.drawer-header {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding: 20px 24px;
-  border-bottom: 1px solid var(--border);
-}
-.drawer-logo {
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-weight: 800; font-size: 20px;
-  color: var(--accent); text-decoration: none;
-}
-.drawer-close {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--card2); border: 1px solid var(--border);
-  color: var(--text); cursor: pointer; font-size: 16px;
-  display: flex; align-items: center; justify-content: center;
-  transition: background .2s;
-}
-.drawer-close:hover { background: var(--border); }
-
-.drawer-links {
-  display: flex; flex-direction: column;
-  padding: 16px 16px;
-  flex: 1;
-  gap: 4px;
-}
-.drawer-links a {
-  font-size: 15px; font-weight: 500;
-  color: var(--muted); text-decoration: none;
-  padding: 13px 16px; border-radius: 10px;
-  transition: color .2s, background .2s;
-  letter-spacing: .01em;
-}
-.drawer-links a:hover { color: var(--text); background: var(--card2); }
-.drawer-links a.active {
-  color: #fff !important;
-  background: var(--accent) !important;
-  font-weight: 600;
-}
-
-.drawer-footer {
-  padding: 20px 24px;
-  border-top: 1px solid var(--border);
-}
-.drawer-theme {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  font-size: 13px; color: var(--muted);
-}
-
-/* ── MOBILE RESPONSIVE ── */
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
-  .nav-links { display: none !important; }
-
-  nav { padding: 0 20px; height: 58px; }
-
-  .page-wrap { padding: 78px 18px 60px; }
-
-  .sec-title { font-size: 28px; margin-bottom: 28px; }
-
-  .stats-bar { flex-wrap: wrap; }
-  .stat { min-width: 50%; border-right: none !important;
-    border-bottom: 1px solid var(--border); }
-  .stat:nth-child(odd) { border-right: 1px solid var(--border) !important; }
-
-  /* About */
-  .about-grid { grid-template-columns: 1fr !important; gap: 28px; }
-  .about-photo { max-height: 280px; object-fit: cover; }
-
-  /* Skills */
-  .skills-grid { grid-template-columns: 1fr !important; }
-  .lang-grid { grid-template-columns: 1fr 1fr !important; }
-
-  /* Projects */
-  .proj-grid { grid-template-columns: 1fr !important; }
-  .fl-grid { grid-template-columns: 1fr !important; }
-  .ach-grid { grid-template-columns: 1fr 1fr !important; }
-
-  /* Certifications */
-  .cert-grid { grid-template-columns: 1fr !important; }
-  .edu-card { flex-direction: column; gap: 8px; }
-  .edu-score { text-align: left !important; }
-  .edu-score-label { text-align: left !important; }
-
-  /* Contact */
-  .contact-wrap { grid-template-columns: 1fr !important; }
-
-  /* Filter bar */
-  .filter-bar { gap: 6px; }
-  .filter-btn { font-size: 11.5px; padding: 6px 12px; }
-
-  /* Stack pills */
-  .stack-pills { gap: 7px; }
-  .stack-pill { font-size: 12px; padding: 7px 13px; }
-
-  /* Hero */
-  .hero { padding: 78px 18px 40px; }
-  .hero-inner { grid-template-columns: 1fr !important; gap: 32px; }
-  .photo-col { order: -1; }
-  .photo-frame { width: 180px !important; height: 230px !important; margin: 0 auto; }
-  .photo-img { width: 180px !important; height: 230px !important; }
-  .hero h1 { font-size: 38px !important; }
-
-  /* Exp */
-  .exp-list { gap: 16px; }
-  .exp-top { flex-direction: column; gap: 6px; }
-
-  /* Modal */
-  .modal { border-radius: 16px; }
-  .modal-img { height: 180px; }
-  .modal-body { padding: 20px; }
-
-  footer { padding: 20px 18px; font-size: 12px; }
-}
-
-@media (max-width: 380px) {
-  .lang-grid { grid-template-columns: 1fr !important; }
-  .ach-grid { grid-template-columns: 1fr !important; }
-}
-
-
-/* ── NAV FORCE FIX ── */
-nav {
-  display: flex !important;
-  position: fixed !important;
-  top: 0 !important; left: 0 !important; right: 0 !important;
-  z-index: 9999 !important;
-  height: 64px !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 0 48px !important;
-  background: rgba(8,8,16,0.92) !important;
-  backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-}
-body.light nav { background: rgba(240,238,255,0.92) !important; }
-.nav-links { display: flex !important; gap: 4px !important; }
-.nav-right { display: flex !important; align-items: center !important; gap: 14px !important; }
-.hamburger { display: none; }
-@media (max-width: 768px) {
-  nav { padding: 0 20px !important; }
-  .nav-links { display: none !important; }
-  .hamburger { 
-    display: flex !important; 
-    flex-direction: column !important;
-    gap: 5px !important;
-    cursor: pointer !important;
-    padding: 6px !important;
-    border: none !important;
-    background: transparent !important;
-  }
-  .hamburger span {
-    display: block !important;
-    width: 24px !important; height: 2px !important;
-    background: var(--text) !important;
-    border-radius: 2px !important;
-  }
-}
-
 </style>
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 64px 48px 40px; position: relative; z-index: 1;
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 380px;
+      gap: 64px; align-items: center;
+      max-width: 1120px; margin: 0 auto; width: 100%;
+    }
+    /* Status row */
+    .status-row {
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 10px;
+      margin-bottom: 24px;
+    }
+    .exp-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 12px; font-weight: 600; letter-spacing: .04em;
+      padding: 5px 14px; border-radius: 20px;
+      background: rgba(240,180,41,0.12);
+      border: 1px solid rgba(240,180,41,0.3);
+      color: var(--gold);
+    }
+    .hero-pill {
+      display: inline-block; font-size: 12px; font-weight: 500;
+      padding: 5px 14px; border-radius: 20px;
+      border: 1px solid var(--border2); color: var(--muted);
+      letter-spacing: .02em;
+    }
+    /* Heading */
+    .hero h1 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800; letter-spacing: -2.5px;
+      line-height: 1.02; margin-bottom: 14px;
+      font-size: clamp(44px, 6vw, 72px);
+    }
+    .hero h1 .name { color: var(--accent); display: block; }
+    /* Typewriter */
+    .typewriter-wrap {
+      margin-bottom: 20px; min-height: 38px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .tw-prefix { font-size: 16px; color: var(--muted); font-weight: 500; }
+    .tw-text {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: clamp(17px, 2.2vw, 22px);
+      color: var(--accent2); font-weight: 700;
+    }
+    .tw-cursor {
+      display: inline-block; width: 2px; height: 1.2em;
+      background: var(--accent2); margin-left: 2px;
+      animation: cursorBlink .75s step-end infinite; vertical-align: middle;
+    }
+    @keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+    /* Desc */
+    .hero-desc {
+      font-size: 15.5px; color: var(--muted);
+      line-height: 1.85; max-width: 520px; margin-bottom: 32px;
+      font-weight: 400;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Photo */
+    .photo-col { position: relative; display: flex; justify-content: center; }
+    .photo-frame {
+      position: relative; width: 300px; height: 380px;
+    }
+    .photo-rings {
+      position: absolute; inset: -20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pr { position: absolute; border-radius: 50%; }
+    .pr1 {
+      inset: 0; border: 1.5px solid rgba(123,110,246,.35);
+      animation: spinRing 16s linear infinite;
+    }
+    .pr2 {
+      inset: -18px; border: 1px dashed rgba(255,94,138,.25);
+      animation: spinRing 26s linear infinite reverse;
+    }
+    .pr3 {
+      inset: -36px; border: 1px solid rgba(56,232,192,.12);
+      animation: spinRing 38s linear infinite;
+    }
+    @keyframes spinRing { to { transform: rotate(360deg); } }
+    .photo-img {
+      width: 300px; height: 380px;
+      border-radius: 28px;
+      object-fit: cover; object-position: top center;
+      border: 2px solid rgba(123,110,246,.4);
+      position: relative; z-index: 2; display: block;
+    }
+    .photo-glow {
+      position: absolute; bottom: -30px; left: 50%;
+      transform: translateX(-50%);
+      width: 200px; height: 80px;
+      background: radial-gradient(ellipse, rgba(123,110,246,.4), transparent 70%);
+      z-index: 1; pointer-events: none;
+    }
+    /* Floating badges */
+    .float-badge {
+      position: absolute; z-index: 3;
+      background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 12px; padding: 8px 14px;
+      font-size: 12px; font-weight: 600; color: var(--text);
+      backdrop-filter: blur(8px);
+      animation: floatY 3.5s ease-in-out infinite;
+    }
+    .float-badge.b1 { top: 10px; right: -40px; animation-delay: 0s; }
+    .float-badge.b2 { bottom: 60px; left: -50px; animation-delay: 1.2s; }
+    .float-badge .fb-num { font-family:'Cabinet Grotesk',sans-serif; font-size:18px; font-weight:800; color:var(--accent); display:block; }
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+    /* Orbs */
+    .orb1 {
+      position: absolute; right: 0; top: 20%; pointer-events: none;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,110,246,.12) 0%, transparent 70%);
+      animation: pulse 6s ease-in-out infinite;
+    }
+    .orb2 {
+      position: absolute; left: -100px; bottom: 10%; pointer-events: none;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(56,232,192,.07) 0%, transparent 70%);
+      animation: pulse 8s ease-in-out infinite 2s;
+    }
+    @keyframes pulse {
+      0%,100%{transform:scale(1);opacity:.7}
+      50%{transform:scale(1.12);opacity:1}
+    }
+
+    /* Hero entry animations */
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content > * { animation: fadeSlide .7s cubic-bezier(.4,0,.2,1) both; }
+    .hero-content > *:nth-child(1) { animation-delay: .08s; }
+    .hero-content > *:nth-child(2) { animation-delay: .18s; }
+    .hero-content > *:nth-child(3) { animation-delay: .28s; }
+    .hero-content > *:nth-child(4) { animation-delay: .38s; }
+    .hero-content > *:nth-child(5) { animation-delay: .48s; }
+    .photo-col { animation: fadeSlide .9s .2s cubic-bezier(.4,0,.2,1) both; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .photo-col { order: -1; }
+      .photo-frame { width: 220px; height: 280px; }
+      .photo-img { width: 220px; height: 280px; }
+      .float-badge.b1 { right: -10px; }
+      .float-badge.b2 { left: -10px; }
+      .hero { padding: 88px 20px 40px; }
+    }
+  </style>
 </head>
 <body>
-  </div>
-
-    <nav>
-    <a class="nav-logo" href="index.html">SP.</a>
-    <div class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="certifications.html">Certifications</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-right">
-      <button class="theme-btn" onclick="toggleTheme()"></button>
-      <button class="hamburger" onclick="openDrawer()" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
-  <div class="drawer" id="drawer">
-    <div class="drawer-header">
-      <a class="drawer-logo" href="index.html">SP.</a>
-      <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
-    </div>
-    <div class="drawer-links">
-      <a href="index.html" class="active" onclick="closeDrawer()">Home</a>
-      <a href="about.html" onclick="closeDrawer()">About</a>
-      <a href="skills.html" onclick="closeDrawer()">Skills</a>
-      <a href="projects.html" onclick="closeDrawer()">Projects</a>
-      <a href="certifications.html" onclick="closeDrawer()">Certifications</a>
-      <a href="contact.html" onclick="closeDrawer()">Contact</a>
-    </div>
-    <div class="drawer-footer">
-      <div class="drawer-theme">
-        <span>Switch theme</span>
-        <button class="theme-btn" onclick="toggleTheme()"></button>
-      </div>
-    </div>
-  </div>
-
   <div class="grid-lines"></div>
   <canvas id="bg-canvas"></canvas>
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
-
+  <nav id="main-nav">
+  <a class="nav-logo" href="index.html">SP.</a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()"></button>
+  </div>
+</nav>
 
   <div class="hero">
     <div class="orb1"></div>
@@ -646,10 +562,8 @@ body.light nav { background: rgba(240,238,255,0.92) !important; }
     <div class="stat"><div class="stat-num">1</div><div class="stat-label">Research Publication</div></div>
   </div>
 
-  <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2026</footer>
-  
-  
-<script>
+  <footer>Crafted with &#10084; by Soham Page &nbsp;&middot;&nbsp; &copy; 2024</footer>
+  <script>
 // ── Theme ──────────────────────────────────────────────────────────
 const savedTheme = localStorage.getItem('sp-theme');
 if (savedTheme === 'light') document.body.classList.add('light');
@@ -787,23 +701,23 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 
 
 
-// ── Mobile Drawer ──────────────────────────────────────────────────
-function openDrawer() {
-  document.getElementById('drawer').classList.add('open');
-  document.getElementById('drawer-overlay').style.display = 'block';
-  setTimeout(() => document.getElementById('drawer-overlay').classList.add('open'), 10);
-  document.body.style.overflow = 'hidden';
-  document.querySelector('.hamburger').classList.add('open');
-}
-function closeDrawer() {
-  document.getElementById('drawer').classList.remove('open');
-  document.getElementById('drawer-overlay').classList.remove('open');
-  setTimeout(() => { document.getElementById('drawer-overlay').style.display = 'none'; }, 300);
-  document.body.style.overflow = '';
-  const ham = document.querySelector('.hamburger');
-  if (ham) ham.classList.remove('open');
-}
-
 </script>
+  <script>
+    const words = ['scalable ML systems','Flutter apps','cloud-native APIs','full-stack products','DevOps pipelines'];
+    let wi = 0, ci = 0, del = false;
+    const tw = document.getElementById('tw');
+    function type() {
+      const w = words[wi];
+      if (!del) {
+        tw.textContent = w.slice(0, ++ci);
+        if (ci === w.length) { del = true; setTimeout(type, 2000); return; }
+      } else {
+        tw.textContent = w.slice(0, --ci);
+        if (ci === 0) { del = false; wi = (wi + 1) % words.length; }
+      }
+      setTimeout(type, del ? 50 : 90);
+    }
+    type();
+  </script>
 </body>
 </html>
