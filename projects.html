@@ -337,6 +337,32 @@ footer {
   footer { padding: 24px 20px; }
 }
 
+
+/* ── HAMBURGER BUTTON (mobile only) ── */
+.nav-hamburger {
+  display: none; flex-direction: column; justify-content: center;
+  gap: 5px; width: 38px; height: 38px;
+  background: var(--card2); border: 1px solid var(--border2);
+  border-radius: 10px; cursor: pointer; padding: 8px; z-index: 300; flex-shrink: 0;
+}
+.nav-hamburger span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 2px; transition: transform .3s, opacity .3s; }
+.drawer-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 400; backdrop-filter: blur(4px); opacity: 0; transition: opacity .3s; }
+.drawer-overlay.open { display: block; opacity: 1; }
+.drawer { position: fixed; top: 0; left: 0; bottom: 0; width: 270px; height: 100vh; background: var(--bg2); border-right: 1px solid var(--border2); z-index: 500; display: flex; flex-direction: column; transform: translateX(-100%); transition: transform .35s cubic-bezier(.4,0,.2,1); box-shadow: 6px 0 32px rgba(0,0,0,0.35); }
+.drawer.open { transform: translateX(0); }
+.drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 64px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.drawer-logo { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 800; font-size: 22px; color: var(--accent); letter-spacing: -1px; text-decoration: none; }
+.drawer-close { width: 34px; height: 34px; border-radius: 50%; background: var(--card2); border: 1px solid var(--border2); color: var(--text); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+.drawer-close:hover { background: var(--border2); }
+.drawer-links { display: flex; flex-direction: column; padding: 16px 12px; gap: 4px; flex: 1; overflow-y: auto; }
+.drawer-links a { font-size: 15px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 12px 16px; border-radius: 10px; transition: color .2s, background .2s; letter-spacing: .01em; }
+.drawer-links a:hover { color: var(--text); background: var(--card2); }
+.drawer-links a.active { color: #fff !important; background: var(--accent) !important; font-weight: 600; }
+body.light .drawer-links a.active { color: #fff !important; background: var(--accent) !important; }
+.drawer-footer { padding: 16px 20px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; margin-top: auto; }
+.drawer-footer-label { font-size: 13px; color: var(--muted); font-weight: 500; }
+@media (max-width: 768px) { .nav-hamburger { display: flex; } }
+
 </style>
   <style>
     .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
@@ -395,9 +421,52 @@ footer {
     .ach-badge { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; margin-bottom: 8px; background: rgba(56,232,192,.09); color: var(--accent3); border: 1px solid rgba(56,232,192,.2); }
     .ach-title { font-family: 'Cabinet Grotesk', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 5px; }
     .ach-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
-  </style>
+  
+    /* ── MOBILE: Projects page ── */
+    @media (max-width: 768px) {
+      .proj-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 48px; }
+      .fl-grid   { grid-template-columns: 1fr; gap: 14px; margin-bottom: 48px; }
+      .ach-grid  { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .proj-card:hover { transform: none; }
+      .fl-card:hover   { transform: none; }
+      .ach-card:hover  { transform: none; }
+      .freelance-banner { flex-direction: column; padding: 20px; gap: 12px; text-align: center; }
+      .filter-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+      .filter-bar::-webkit-scrollbar { display: none; }
+      .filter-btn { flex-shrink: 0; }
+      .sec-title { margin-bottom: 24px; }
+      .modal-body { padding: 20px 16px; }
+      .modal-title { font-size: 20px; }
+    }
+    @media (max-width: 400px) {
+      .ach-grid { grid-template-columns: 1fr; }
+      .proj-img, .proj-img-ph { height: 150px; }
+    }
+
+</style>
 </head>
 <body>
+<!-- ── MOBILE DRAWER ── -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <a class="drawer-logo" href="index.html">SP.</a>
+    <button class="drawer-close" onclick="closeDrawer()">&#x2715;</button>
+  </div>
+  <nav class="drawer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="drawer-footer">
+    <span class="drawer-footer-label">Switch theme</span>
+    <button class="theme-btn" onclick="toggleTheme()"></button>
+  </div>
+</div>
+
   <div class="grid-lines"></div><canvas id="bg-canvas"></canvas>
   <div id="cursor"></div><div id="cursor-ring"></div>
   <nav id="main-nav">
@@ -413,6 +482,7 @@ footer {
   <div class="nav-right">
     <button class="theme-btn" onclick="toggleTheme()"></button>
   </div>
+  <button class="nav-hamburger" onclick="openDrawer()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
   <div class="page-wrap">
@@ -716,7 +786,20 @@ function closeModal() {
   if (o) o.classList.remove('open');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeDrawer(); } });
+
+// ── Drawer ──
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 
 
 

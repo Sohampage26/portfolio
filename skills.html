@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
 
+
 :root {
   --bg:     #080810;
   --bg2:    #0f0f1a;
@@ -44,8 +45,10 @@ body.light {
   --card2:  rgba(255,255,255,0.95);
 }
 
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
+
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -57,10 +60,12 @@ body {
   line-height: 1.6;
 }
 
+
 /* ── DISPLAY FONT ── */
 .font-display {
   font-family: 'Cabinet Grotesk', sans-serif;
 }
+
 
 /* ── GRID BG ── */
 .grid-lines {
@@ -73,12 +78,14 @@ body {
   transition: opacity .4s;
 }
 
+
 /* ── CANVAS ── */
 #bg-canvas {
   position: fixed; top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none; z-index: 0;
 }
+
 
 /* ── CURSOR ── */
 #cursor {
@@ -98,6 +105,7 @@ body {
   opacity: .45;
 }
 
+
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -110,6 +118,7 @@ nav {
   transition: background .45s, border-color .45s;
 }
 body.light nav { background: rgba(240,238,255,0.82); }
+
 
 .nav-logo {
   font-family: 'Cabinet Grotesk', sans-serif;
@@ -139,6 +148,7 @@ body.light .nav-links a.active {
 }
 .nav-right { display: flex; align-items: center; gap: 14px; }
 
+
 .theme-btn {
   width: 40px; height: 22px; border-radius: 11px;
   background: var(--accent); border: none; cursor: pointer;
@@ -151,12 +161,14 @@ body.light .nav-links a.active {
 }
 body.light .theme-btn::after { transform: translateX(18px); }
 
+
 /* ── PAGE WRAPPER ── */
 .page-wrap {
   position: relative; z-index: 1;
   max-width: 1120px; margin: 0 auto;
   padding: 96px 48px 80px;
 }
+
 
 /* ── SECTION HEADINGS ── */
 .sec-tag {
@@ -175,6 +187,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   margin-bottom: 44px; line-height: 1.1;
 }
 
+
 /* ── CARDS ── */
 .card {
   background: var(--card); border: 1px solid var(--border);
@@ -182,6 +195,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   transition: border-color .25s, transform .25s, background .25s;
 }
 .card:hover { border-color: var(--border2); background: var(--card2); }
+
 
 /* ── BUTTONS ── */
 .btn-primary {
@@ -216,6 +230,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   transform: translateY(-2px);
 }
 
+
 /* ── TAGS ── */
 .tag {
   font-size: 11px; padding: 3px 10px; border-radius: 20px;
@@ -227,6 +242,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   background: rgba(123,110,246,0.1); color: var(--a-light);
   border: 1px solid rgba(123,110,246,0.22); font-weight: 500;
 }
+
 
 /* ── STATS BAR ── */
 .stats-bar {
@@ -249,6 +265,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 }
 .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 500; }
 
+
 /* ── REVEAL ── */
 .reveal {
   opacity: 0; transform: translateY(32px);
@@ -258,6 +275,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 .reveal-delay-1 { transition-delay: .12s; }
 .reveal-delay-2 { transition-delay: .24s; }
 .reveal-delay-3 { transition-delay: .36s; }
+
 
 /* ── MODAL ── */
 .modal-overlay {
@@ -311,6 +329,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
   background: var(--accent); margin-top: 7px; flex-shrink: 0;
 }
 
+
 /* ── AVAIL BADGE ── */
 .avail {
   display: inline-flex; align-items: center; gap: 8px;
@@ -322,6 +341,7 @@ body.light .theme-btn::after { transform: translateX(18px); }
 }
 @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.25;transform:scale(.7)} }
 
+
 /* ── FOOTER ── */
 footer {
   text-align: center; padding: 30px 48px;
@@ -330,12 +350,129 @@ footer {
   position: relative; z-index: 1; font-weight: 500;
 }
 
+/* ── HAMBURGER BUTTON (mobile only) ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px; height: 38px;
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 300;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  width: 100%; height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+
+/* ── DRAWER OVERLAY ── */
+.drawer-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 400;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.drawer-overlay.open { display: block; opacity: 1; }
+
+/* ── DRAWER PANEL (left side) ── */
+.drawer {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 270px;
+  height: 100vh;
+  background: var(--bg2);
+  border-right: 1px solid var(--border2);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 6px 0 32px rgba(0,0,0,0.35);
+}
+.drawer.open { transform: translateX(0); }
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 64px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.drawer-logo {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: 800; font-size: 22px;
+  color: var(--accent); letter-spacing: -1px;
+  text-decoration: none;
+}
+.drawer-close {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--card2); border: 1px solid var(--border2);
+  color: var(--text); cursor: pointer; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.drawer-close:hover { background: var(--border2); }
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px;
+  gap: 4px;
+  flex: 1;
+  overflow-y: auto;
+}
+.drawer-links a {
+  font-size: 15px; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  padding: 12px 16px; border-radius: 10px;
+  transition: color .2s, background .2s;
+  letter-spacing: .01em;
+}
+.drawer-links a:hover { color: var(--text); background: var(--card2); }
+.drawer-links a.active {
+  color: #fff !important;
+  background: var(--accent) !important;
+  font-weight: 600;
+}
+body.light .drawer-links a.active {
+  color: #fff !important;
+  background: var(--accent) !important;
+}
+
+.drawer-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+.drawer-footer-label {
+  font-size: 13px; color: var(--muted); font-weight: 500;
+}
+
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .page-wrap { padding: 88px 20px 60px; }
   footer { padding: 24px 20px; }
+  .nav-hamburger { display: flex; }
 }
+
 
 </style>
   <style>
@@ -347,6 +484,7 @@ footer {
     .skill-pct { color: var(--accent); font-weight: 700; font-family: 'Cabinet Grotesk', sans-serif; }
     .skill-track { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
     .skill-fill { height: 100%; border-radius: 3px; width: 0; transition: width 1.3s cubic-bezier(.4,0,.2,1); }
+
 
     .stack-section { margin-bottom: 60px; }
     .stack-group { margin-bottom: 28px; }
@@ -362,6 +500,7 @@ footer {
     }
     .stack-pill:hover { border-color: var(--accent); transform: translateY(-2px); background: var(--card2); }
     .pdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
 
     .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; }
     .lang-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 30px 24px; text-align: center; transition: transform .25s, border-color .25s, background .25s; position: relative; overflow: hidden; }
@@ -388,25 +527,79 @@ footer {
     .jp-note { margin-top: 14px; font-size: 11.5px; color: var(--muted); line-height: 1.5; background: rgba(255,94,138,.05); border-radius: 9px; padding: 9px 12px; border: 1px solid rgba(255,94,138,.12); }
 
     @media (max-width: 640px) { .skills-grid { grid-template-columns: 1fr; } }
+
+    /* ── MOBILE: Skills page extras ── */
+    @media (max-width: 768px) {
+      /* Stack pills slightly smaller on mobile */
+      .stack-pill { font-size: 12px; padding: 7px 13px; }
+
+      /* Lang grid: 2 columns on mobile */
+      .lang-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+      /* Lang cards: tighter padding */
+      .lang-card { padding: 20px 14px; }
+      .lang-name { font-size: 16px; }
+      .lang-sub  { font-size: 11.5px; }
+
+      /* Disable hover lift on touch */
+      .lang-card:hover { transform: none; }
+      .stack-pill:hover { transform: none; }
+
+      /* Section title spacing */
+      .sec-title { margin-bottom: 28px; }
+      .stack-section { margin-bottom: 40px; }
+    }
+
+    @media (max-width: 400px) {
+      /* Single column lang grid on very small phones */
+      .lang-grid { grid-template-columns: 1fr; }
+      .lang-card { padding: 18px 16px; }
+    }
   </style>
 </head>
 <body>
-  <div class="grid-lines"></div><canvas id="bg-canvas"></canvas>
-  <div id="cursor"></div><div id="cursor-ring"></div>
-  <nav id="main-nav">
-  <a class="nav-logo" href="index.html">SP.</a>
-  <div class="nav-links">
+
+<!-- ── MOBILE DRAWER ── -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <a class="drawer-logo" href="index.html">SP.</a>
+    <button class="drawer-close" onclick="closeDrawer()">&#x2715;</button>
+  </div>
+  <nav class="drawer-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="skills.html" class="active">Skills</a>
     <a href="projects.html">Projects</a>
     <a href="certifications.html">Certifications</a>
     <a href="contact.html">Contact</a>
-  </div>
-  <div class="nav-right">
+  </nav>
+  <div class="drawer-footer">
+    <span class="drawer-footer-label">Switch theme</span>
     <button class="theme-btn" onclick="toggleTheme()"></button>
   </div>
-</nav>
+</div>
+
+  <div class="grid-lines"></div><canvas id="bg-canvas"></canvas>
+  <div id="cursor"></div><div id="cursor-ring"></div>
+
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">SP.</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html" class="active">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" onclick="toggleTheme()"></button>
+    </div>
+    <button class="nav-hamburger" onclick="openDrawer()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
   <div class="page-wrap">
     <div class="sec-tag">Technical arsenal</div>
@@ -505,7 +698,7 @@ footer {
         <div class="lang-name">Japanese</div><div class="lang-sub">JLPT N4 Certified</div>
         <span class="lbadge lb-n5">N4 Certified</span>
         <div class="ldots"><div class="ldot on-pink"></div><div class="ldot on-pink"></div><div class="ldot"></div><div class="ldot"></div><div class="ldot"></div></div>
-        <div class="jp-note">日本語が大好き 🇯🇵 — Actively learning, passionate about Japanese culture &amp; language</div>
+        <div class="jp-note">&#26085;&#26412;&#35486;&#12364;&#22823;&#22909;&#12365; &#127471;&#127477; &#x2014; Actively learning, passionate about Japanese culture &amp; language</div>
       </div>
     </div>
   </div>
@@ -521,6 +714,17 @@ function toggleTheme() {
   localStorage.setItem('sp-theme', document.body.classList.contains('light') ? 'light' : 'dark');
 }
 
+// ── Drawer ──────────────────────────────────────────────────────────
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 // ── Custom cursor ──────────────────────────────────────────────────
 const cursor = document.getElementById('cursor');
@@ -552,7 +756,6 @@ if (cursor && ring) {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, pts = [];
-
   function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   function mkP() {
     return {
@@ -564,7 +767,6 @@ if (cursor && ring) {
     };
   }
   function init() { pts = Array.from({ length: 85 }, mkP); }
-
   function draw() {
     ctx.clearRect(0, 0, W, H);
     const light = document.body.classList.contains('light');
@@ -644,11 +846,9 @@ function closeModal() {
   if (o) o.classList.remove('open');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-
-
-
-</script>
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeModal(); closeDrawer(); }
+});
+  </script>
 </body>
 </html>

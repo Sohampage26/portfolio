@@ -481,6 +481,19 @@ body.light .drawer-links a.active {
   .nav-hamburger { display: flex; }
 }
 
+
+/* ── DRAWER FIX: footer pinned to bottom ── */
+.drawer {
+  height: 100vh;
+}
+.drawer-links {
+  flex: 1;
+  overflow-y: auto;
+}
+.drawer-footer {
+  margin-top: auto;
+}
+
 </style>
   <style>
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; margin-bottom: 72px; }
